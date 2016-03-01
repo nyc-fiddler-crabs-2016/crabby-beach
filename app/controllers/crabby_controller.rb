@@ -31,19 +31,24 @@ end
 # show
 get '/crabs/:id' do
   # respond with info about this particular crab
+  @crab = Crab.find(params[:id])
+  erb :'/crabs/show'
 end
 
 # edit
 # get request to retrieve a form to edit
 get '/crabs/:id/edit' do
-
+  @crab = Crab.find(params[:id])
+  erb :'/crabs/edit'
 end
 
 # update
 # put route to update the record
 
 put '/crabs/:id' do
-
+  crab = Crab.find(params[:id])
+  crab.update(params[:crab])
+  redirect "/crabs/#{crab.id}"
 end
 
 # destroy

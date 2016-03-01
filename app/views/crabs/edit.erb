@@ -1,0 +1,12 @@
+<div>
+  <form method="POST" action="/crabs/<%= @crab.id %>">
+    <input type="hidden" name="_method" value="PUT">
+    <label></label>
+    <input type="text" name="crab[name]" placeholder="Name" value="<%= @crab.name %>">
+    <label></label>
+    <input type="text" name="crab[direction]" placeholder="Direction"  value="<%= @crab.direction %>">
+    <input type="text" name="crab[claw_size]" placeholder="Claw Size" value="<%= @crab.claw_size %>">
+    <input type="text" name="crab[disposition]" placeholder="Disposition" value="<%= @crab.disposition %>">
+    <input type="submit" value="Edit Crab!">
+  </form>
+</div>
