@@ -1,0 +1,9 @@
+<h1>The crabs</h1>
+<div id="crab-container">
+  <% @crabs.each do |crab| %>
+    <div>
+      <h2><%= crab.name %></h2>
+      <p><a href="/crabs/<%= crab.id %>">Click here</a> to view <%= crab.name %>'s profile.</p>
+    </div>
+  <% end %>
+</div>
