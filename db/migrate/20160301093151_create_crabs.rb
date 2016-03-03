@@ -6,6 +6,8 @@ class CreateCrabs < ActiveRecord::Migration
       t.integer :claw_size
       t.string :disposition
 
+      t.references :beach, index: true
+
       t.timestamps null: false
     end
   end
