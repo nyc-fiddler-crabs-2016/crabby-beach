@@ -1,13 +1,4 @@
-
-<div id="error-pane">
-  <% if @errors %>
-    <ul>
-      <% @errors.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= erb :'errors/_errors' %>
 
 <div>
   <form method="POST" action="/crabs">

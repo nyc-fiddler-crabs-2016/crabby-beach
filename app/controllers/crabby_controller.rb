@@ -10,6 +10,7 @@ end
 # index
 get '/crabs' do
   # respond with a list of all the crabs
+  # binding.pry
   @crabs = Crab.all
   erb :'/crabs/index'
 end
@@ -57,13 +58,19 @@ end
 # put route to update the record
 
 put '/crabs/:id' do
-  crab = Crab.find(params[:id])
-  crab.update(params[:crab])
-  redirect "/crabs/#{crab.id}"
+  @crab = Crab.find(params[:id])
+  @crab.assign_attributes(params[:crab])
+  if @crab.save
+    redirect "/crabs/#{@crab.id}"
+  else
+    @beaches = Beach.all
+    @errors = @crab.errors.full_messages
+    erb :'/crabs/edit'
+  end
 end
 
 # destroy
 # delete route to destroy the record
 delete '/crabs/:id' do
-
+  "NOT YET IMPLEMENTED"
 end
