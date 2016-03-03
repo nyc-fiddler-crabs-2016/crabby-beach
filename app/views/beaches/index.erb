@@ -1,0 +1,9 @@
+<h1>Select a beach to view its resident crabs</h1>
+
+<div id="beaches-container">
+  <ul>
+    <% @beaches.each do |beach| %>
+      <li><a href="/beaches/<%= beach.id %>"><%= beach.location %></a> - <%= beach.population %>  <%= "crab".pluralize(beach.population) %></li>
+    <% end %>
+  </ul>
+</div>

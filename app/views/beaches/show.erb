@@ -1,0 +1,6 @@
+<h1>Crabs of <%= @beach.location %></h1>
+<ul>
+  <% @beach.crabs.each do |crab| %>
+    <li><a href="/crabs/<%= crab.id %>"><%= crab.name %></a></li>
+  <% end %>
+</ul>
