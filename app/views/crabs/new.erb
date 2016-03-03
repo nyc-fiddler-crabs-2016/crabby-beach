@@ -1,9 +1,20 @@
+
+<div id="error-pane">
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <div>
   <form method="POST" action="/crabs">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name="direction" placeholder="Direction">
-    <input type="text" name="claw_size" placeholder="Claw Size">
-    <input type="text" name="disposition" placeholder="Disposition">
+    <input type="text" name="name" placeholder="Name" value="<%= @crab.name %>">
+    <input type="text" name="direction" placeholder="Direction" value="<%= @crab.direction %>">
+    <input type="text" name="claw_size" placeholder="Claw Size" value="<%= @crab.claw_size %>">
+    <input type="text" name="disposition" placeholder="Disposition" value="<%= @crab.disposition %>">
     <input type="submit" value="Create Crab!">
   </form>
 </div>

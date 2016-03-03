@@ -17,6 +17,7 @@ end
 # new
 get '/crabs/new' do
   # respond with the form to make a new crab
+  @crab = Crab.new
   erb :'/crabs/new'
 end
 
@@ -24,8 +25,13 @@ end
 post '/crabs' do
   # make a new crab from the data in the body of the request (in params) Crab.create()
   # redirect to the show page for this new crab
-  crab = Crab.create(params)
-  redirect "/crabs/#{crab.id}"
+  @crab = Crab.new(params)
+  if @crab.save
+    redirect "/crabs/#{@crab.id}"
+  else
+    @errors = @crab.errors.full_messages
+    erb :'/crabs/new'
+  end
 end
 
 # show
