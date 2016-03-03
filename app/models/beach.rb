@@ -1,3 +1,5 @@
 class Beach < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :crabs
+
+  validates :location, presence: true
 end
