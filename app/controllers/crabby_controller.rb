@@ -37,14 +37,16 @@ end
 # show
 get '/crabs/:id' do
   # respond with info about this particular crab
-  @crab = Crab.find(params[:id])
+  @crab = Crab.find_by(id: params[:id])
+  halt(404, erb(:'errors/404', layout: false)) unless @crab
   erb :'/crabs/show'
 end
 
 # edit
 # get request to retrieve a form to edit
 get '/crabs/:id/edit' do
-  @crab = Crab.find(params[:id])
+  @crab = Crab.find_by(id: params[:id])
+  halt(404, erb(:'errors/404', layout: false)) unless @crab
   erb :'/crabs/edit'
 end
 
