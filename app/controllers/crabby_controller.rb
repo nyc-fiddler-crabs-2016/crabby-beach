@@ -17,6 +17,7 @@ end
 # new
 get '/crabs/new' do
   # respond with the form to make a new crab
+  @beaches = Beach.all
   @crab = Crab.new
   erb :'/crabs/new'
 end
@@ -29,6 +30,7 @@ post '/crabs' do
   if @crab.save
     redirect "/crabs/#{@crab.id}"
   else
+    @beaches = Beach.all
     @errors = @crab.errors.full_messages
     erb :'/crabs/new'
   end
@@ -47,6 +49,7 @@ end
 get '/crabs/:id/edit' do
   @crab = Crab.find_by(id: params[:id])
   halt(404, erb(:'errors/404', layout: false)) unless @crab
+  @beaches = Beach.all
   erb :'/crabs/edit'
 end
 

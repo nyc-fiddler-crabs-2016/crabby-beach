@@ -11,10 +11,30 @@
 
 <div>
   <form method="POST" action="/crabs">
-    <input type="text" name="name" placeholder="Name" value="<%= @crab.name %>">
-    <input type="text" name="direction" placeholder="Direction" value="<%= @crab.direction %>">
-    <input type="text" name="claw_size" placeholder="Claw Size" value="<%= @crab.claw_size %>">
-    <input type="text" name="disposition" placeholder="Disposition" value="<%= @crab.disposition %>">
+    <div>
+      <label for="crab-name">Crab Name:</label>
+      <input id="crab-name" type="text" name="name" placeholder="Name" value="<%= @crab.name %>">
+    </div>
+    <div>
+      <label for="crab-direction">Crab Direction:</label>
+      <input id="crab-direction" type="text" name="direction" placeholder="Direction" value="<%= @crab.direction %>">
+    </div>
+    <div>
+      <label for="crab-claw-size">Crab Claw Size:</label>
+      <input id="crab-claw-size" type="text" name="claw_size" placeholder="Claw Size" value="<%= @crab.claw_size %>">
+    </div>
+    <div>
+      <label for="crab-disposition">Crab Disposition:</label>
+      <input id="crab-disposition" type="text" name="disposition" placeholder="Disposition" value="<%= @crab.disposition %>">
+    </div>
+    <div>
+      <label for="crab-beach">Crab Beach:</label>
+      <select id="crab-beach" name="beach_id">
+        <% @beaches.each do |beach| %>
+          <option value="<%= beach.id %>"><%= beach.location %></option>
+        <% end %>
+      </select>
+    </div>
     <input type="submit" value="Create Crab!">
   </form>
 </div>
