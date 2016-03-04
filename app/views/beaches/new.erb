@@ -1,0 +1,11 @@
+<%= erb :'errors/_errors' %>
+
+<div>
+  <form method="POST" action="/beaches">
+    <div>
+      <label for="beach-location">Beach location:</label>
+      <input id="beach-location" type="text" name="beach[location]" placeholder="location" value="<%= @beach.location %>">
+    </div>
+    <input type="submit" value="Create Beach!">
+  </form>
+</div>

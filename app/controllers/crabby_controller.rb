@@ -27,7 +27,7 @@ end
 post '/crabs' do
   # make a new crab from the data in the body of the request (in params) Crab.create()
   # redirect to the show page for this new crab
-  @crab = Crab.new(params)
+  @crab = Crab.new(params[:crab])
   if @crab.save
     redirect "/crabs/#{@crab.id}"
   else

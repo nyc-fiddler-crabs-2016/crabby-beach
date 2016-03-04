@@ -3,6 +3,7 @@
   <p><%= @crab.name %> is a crab who walks <%= @crab.direction %>.</p>
   <p><%= @crab.name %> has a <%= @crab.disposition %> disposition.</p>
   <p><%= @crab.name %>'s claw is <%= @crab.claw_size %> cm wide.</p>
+  <p><%= @crab.name %> is a resident of <%= @crab.beach.location %>.</p>
   <a href="/crabs/<%= @crab.id %>/edit">Edit this crab</a>
   <form action="/crabs/<%= @crab.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">

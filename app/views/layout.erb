@@ -24,6 +24,12 @@
       <li><a href="/">Home</a></li>
       <li><a href="/crabs/new">Create a new crab</a></li>
       <li><a href="/beaches/new">Create a new beach</a></li>
+      <% if logged_in? %>
+        <li><a href="/crabs/<%= current_crab.id %>/edit">Edit your profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% else %>
+        <li><a href="/login">Login to the site</a></li>
+      <% end %>
     </ul>
   </nav>
   <%= yield %>
