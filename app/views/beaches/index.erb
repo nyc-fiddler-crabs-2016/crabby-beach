@@ -1,9 +1,25 @@
 <h1>Select a beach to view its resident crabs</h1>
+<button id="new-beach-form-pop-up">Create a new beach.</button>
+<div id="new-beach-form-container">
+  <%= erb :'errors/_errors' %>
+
+  <div>
+    <form id="new-beach-form" method="POST" action="/beaches">
+      <div>
+        <label for="beach-location">Beach location:</label>
+        <input id="beach-location" type="text" name="beach[location]" placeholder="location" value="<%= @beach.location %>">
+      </div>
+      <input id="new-beach-submit" type="submit" value="Create Beach!">
+    </form>
+  </div>
+</div>
 
 <div id="beaches-container">
   <ul>
     <% @beaches.each do |beach| %>
-      <li><a href="/beaches/<%= beach.id %>"><%= beach.location %></a> - <%= beach.population %>  <%= "crab".pluralize(beach.population) %></li>
+      <%= erb :'beaches/_beach', locals: {beach: beach} %>
     <% end %>
   </ul>
 </div>
+
+
